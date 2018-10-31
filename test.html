@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vendor/jquery.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <select class="testsel">
+    <optgroup label="aaa">
+      <option value="opt1" data-src="1234">Option 1</option>
+      <option value="opt2" data-src="4321" disabled>Option 2</option>
+      <option value="opt3" data-src="2134" disabled>Option 3</option>
+    </optgroup>
+    <optgroup label="bbb">
+      <option value="opt1" data-src="1234" data-desc="This is options">Option 1</option>
+    </optgroup>
+  </select>
+  <script src="./src/pop-select.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".testsel").popselect();
+    });
+  </script>
+</body>
+
+</html>
