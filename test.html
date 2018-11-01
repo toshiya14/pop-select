@@ -5,8 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./src/pop-select.css">
   <script src="./vendor/jquery.js"></script>
   <title>Document</title>
+  <style>
+    .pop-select-control{
+      width:200px;
+      font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 11px;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,10 +28,64 @@
       <option value="opt1" data-src="1234" data-desc="This is options">Option 1</option>
     </optgroup>
   </select>
+  <div class="pop-select-control up" style="width:60%;position:fixed;left:20%;top:20%;" id="testctrl">
+    <select class="pop-select-select pop-select-hidden">
+      <optgroup label="aaa">
+        <option value="opt1" data-src="1234">Option 1</option>
+        <option value="opt2" data-src="4321" disabled>Option 2</option>
+        <option value="opt3" data-src="2134" disabled>Option 3</option>
+      </optgroup>
+      <optgroup label="bbb">
+        <option value="opt1" data-src="1234" data-desc="This is options">Option 1</option>
+      </optgroup>
+    </select>
+    <div class="pop-select-wrap">
+      <div class="pop-select-tag-list">
+        <div class="pop-select-tag">
+          Tag 1<button class="pop-select-remove"></button>
+        </div>
+        <div class="pop-select-tag">
+          Tag 1<button class="pop-select-remove"></button>
+        </div>
+        <input type="text" />
+      </div>
+    </div>
+    <div class="pop-select-option-list">
+      <div class="pop-select-option-group-container">
+        <h4 class="pop-select-option-group-title">Test Group</h4>
+        <div class="pop-select-option pop-select-ori-option" data-value="opt1">Option 1</div>
+        <div class="pop-select-option pop-select-ori-option disabled" data-value="opt2">Option 2</div>
+        <div class="pop-select-option pop-select-ori-option" data-value="opt3">Option 3</div>
+      </div>
+      <div class="pop-select-option pop-select-ori-option" data-value="opt4">Option 4</div>
+      <div class="pop-select-option pop-select-ori-option" data-value="opt5">Option 5</div>
+      <div class="pop-select-option pop-select-ori-option" data-value="opt6">Option 6</div>
+    </div>
+  </div>
+  <div style="width:60%;position:fixed;left:20%;top:40%;z-index:1;">
+    <button id="toggle">开关下拉框</button>
+    <button id="direction">切换方向</button>
+    <button id="full">全荧幕</button>
+  </div>
   <script src="./src/pop-select.js"></script>
   <script>
     $(document).ready(function () {
       $(".testsel").popselect();
+    });
+  </script>
+  <script>
+    $("#toggle").click(function () {
+      $("#testctrl").toggleClass("active");
+    });
+    $("#direction").click(function () {
+      $("#testctrl").toggleClass("down up");
+    });
+    $("#full").click(function () {
+      if ($("#testctrl").hasClass("full")) {
+        $("#testctrl").toggleClass("full down");
+      } else {
+        $("#testctrl").removeClass("down up").addClass("full");
+      }
     });
   </script>
 </body>
