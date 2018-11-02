@@ -41,6 +41,10 @@ $("Selector").popselect(options);
     <td>Make the select inputable and filter the options while typing. If <code>searchFields</code> is not set, all data fields would be used for filtering.</td>
   </tr>
   <tr>
+    <td><code>canCustom</code><br/><i>Boolean</i><br/>(Default: <code>false</code>)</td>
+    <td>If it set to `true`, user could type their own value in the select box and submit the value. If set to `false`, user could only select items or type text in the select box for searching.</td>
+  </tr>
+  <tr>
     <td><code>searchFields</code><br/><i>Array</i><br/>(Default: <code>%html</code>)</td>
     <td>While <code>canSearch</code> is <code>true</code>, this field is used for filtering the option list with input text. If this field is not set or empty, all data fields would be used. Some special value could be used.<br/>Special values:<br/>&nbsp; * <code>%html</code>&nbsp; - search text within the rendered html. (With this value, keyword highlight is enabled.)<br/>&nbsp; * <code>%text</code>&nbsp; - search text within the rendered html. (With this value, keyword highlight is disabled.)</td>
   </tr>
@@ -70,7 +74,7 @@ $("Selector").popselect(options);
   </tr>
   <tr>
     <td><code>render</code><br/><i>object</i><br/>(Default: <code>{}</code>)</td>
-    <td>A function set to define the render methods. the value of each member must be a <code>function(item)</code>. The following key would be used:<br/>&nbsp; * <code>option</code>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - How to render the options in the option list.<br/>&nbsp; * <code>selected</code>&nbsp; &nbsp; &nbsp; &nbsp; - The function to render selected item(s).<br/>&nbsp; * <code>group_header</code>&nbsp; &nbsp; - The function to render the header of each group.<br/>&nbsp; * <code>group_container</code> - The function to render the outer container of each group.</td>
+    <td>A function set to define the render methods. the value of each member must be a <code>function</code>. The following key would be used:<br/>&nbsp; * <code>option(item)</code>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - How to render the options in the option list. <code>item</code> is one instance for option.<br/>&nbsp; * <code>selected(item)</code>&nbsp; &nbsp; &nbsp; &nbsp; - The function to render selected item(s).<br/>&nbsp; * <code>group_header(groupLabel)</code>&nbsp; &nbsp; - The function to render the header of each group.<code>groupLabel</code> is a string what the label of current group is.<br/>&nbsp; * <code>group_container(groupLabel)</code> - The function to render the outer container of each group.</td>
   </tr>
   <tr>
     <td><code>emptyPlaceholder</code><br/><i>string</i><br/>(Default: <code>No items could be selected.</code>)</td>

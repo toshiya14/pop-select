@@ -23,6 +23,19 @@ $animation-time: 0.2s;
     opacity:0;
     z-index:11;
 }
+.#{$prefix}-full-bg{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: -1;
+    transition: background $animation-time ease-in-out;
+    background-color:transparent;
+    &.show{
+        background-color:rgba(0,50,100,0.5);
+    }
+}
 .#{$prefix}-remove{
     position: relative;
     &:before, &:after{
@@ -44,12 +57,21 @@ $animation-time: 0.2s;
 .#{$prefix}-control{
     width:100%;
     position: relative;
+    input[type='text']{
+        font-size:inherit;
+        font-family: inherit;
+        outline:none;
+        border:1px solid transparent;
+        border-radius:0;
+        box-shadow:none;
+    }
     .#{$prefix}-wrap{
         width:100%;
         box-sizing: border-box;
         border:1px solid $border-color;
         border-radius: 3px;
         padding: 6px 25px 3px 5px;
+        background-color:#FEFEFE;
         &:before{
             position: absolute;
             top:50%;
@@ -62,6 +84,13 @@ $animation-time: 0.2s;
             border-color: $select-box-arrow-color transparent transparent;
             -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
+        }
+        .#{$prefix}-label{
+            margin:0 3px 3px 0;
+            padding:2px 4px;
+            box-sizing: border-box;
+            
+            width:100%;
         }
         .#{$prefix}-tag-list{
             &>.#{$prefix}-tag{
@@ -96,6 +125,7 @@ $animation-time: 0.2s;
                 }
             }
             &>input{
+                margin:0 3px 3px 0;
                 padding:2px 0;
                 font-size: inherit;
                 font-family: inherit;

@@ -19,6 +19,20 @@
   z-index: 11;
 }
 
+.pop-select-full-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: background 0.2s ease-in-out;
+  background-color: transparent;
+}
+.pop-select-full-bg.show {
+  background-color: rgba(0, 50, 100, 0.5);
+}
+
 .pop-select-remove {
   position: relative;
 }
@@ -42,12 +56,21 @@
   width: 100%;
   position: relative;
 }
+.pop-select-control input[type=text] {
+  font-size: inherit;
+  font-family: inherit;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
 .pop-select-control .pop-select-wrap {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #999;
   border-radius: 3px;
   padding: 6px 25px 3px 5px;
+  background-color: #FEFEFE;
 }
 .pop-select-control .pop-select-wrap:before {
   position: absolute;
@@ -61,6 +84,12 @@
   border-color: #666 transparent transparent;
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
+}
+.pop-select-control .pop-select-wrap .pop-select-label {
+  margin: 0 3px 3px 0;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .pop-select-control .pop-select-wrap .pop-select-tag-list > .pop-select-tag {
   box-sizing: border-box;
@@ -94,6 +123,7 @@
   cursor: pointer;
 }
 .pop-select-control .pop-select-wrap .pop-select-tag-list > input {
+  margin: 0 3px 3px 0;
   padding: 2px 0;
   font-size: inherit;
   font-family: inherit;
